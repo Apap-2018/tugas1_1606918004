@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    
+	<title>Pencarian Pegawai</title>
+
+</head>
+<body>
+	
+	<h1 th:text="'Lihat Data Pegawai - ' + ${pegawai.nip}"></h1>
+    <div class="container">
+    	<table class ="table table-borderless table-striped">
+			<tbody>
+				<tr>
+					<th>NIP</th>
+					<td th:text="${pegawai.nip}"></td>
+				</tr>
+				<tr>
+					<th>Nama</th>
+					<td th:text="${pegawai.nama}"></td>
+				</tr>
+				<tr>
+					<th>Tempat Lahir</th>
+					<td th:text="${pegawai.tempat_lahir}"></td>
+				</tr>
+				<tr>
+					<th>Tanggal Lahir</th>
+					<td th:text="${pegawai.tanggal_lahir}"></td>
+				</tr>
+				<tr>
+					<th>Tahun Masuk</th>
+					<td th:text="${pegawai.tahun_masuk}"></td>
+				</tr>
+				<tr>
+					<th>Nama Instansi</th>
+					<td th:text="${instansi}"></td>
+				</tr>
+				<tr>
+					<th>Jabatan</th>
+					<td>
+					<ul th:each="jabatan : ${pegawai.listJabatan}">
+						<li th:text="${jabatan.nama}"></li>
+					</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Gaji</th>
+					<td th:text="'Rp'+${gaji}"></td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+
+</body>
+
+</html>

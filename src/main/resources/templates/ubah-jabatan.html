@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    
+	<title>Home</title>
+	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<div class="container">
+		<h3>Ubah Jabatan</h3>
+	</div>
+	<div class="container">
+    	<form th:action="@{/jabatan/ubah}" th:object="${jabatan}" method="POST">
+			<input type="hidden" th:value="${jabatan.id}" name="id_jabatan"></input>
+			<div class="form-group row">
+				<label>Nama</label>
+				<div class="col-sm-9">
+					<input type="text" th:value="${jabatan.nama}" name="nama" class="form-control" id="nama" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="deskripsi" class="col-sm-3 col-form-label-md">Deskripsi</label>
+				<div class="col-sm-9">
+					<input type="text" th:value="${jabatan.deskripsi}" name="deskripsi" class="form-control" id="deskripsi" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="gaji_pokok" class="col-sm-3 col-form-label-md">Gaji Pokok</label>
+				<div class="col-sm-9">
+					<input type="number" th:value="${jabatan.gaji_pokok}" name="gaji_pokok" class="form-control" id="gaji_pokok" value="3500000"/>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Simpan</button>
+		</form>
+		
+    </div>
+</body>
+</html>

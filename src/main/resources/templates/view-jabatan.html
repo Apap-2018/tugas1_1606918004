@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    
+	<title>Home</title>
+	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<h1 th:text="'Detail Jabatan  ' + ${jabatan.nama}"></h1>
+    <div class="container">
+    	<table class ="table table-borderless table-striped">
+			<tbody>
+				<tr>
+					<th>Nama</th>
+					<td th:text="${jabatan.nama}"></td>
+				</tr>
+				<tr>
+					<th>Deskripsi</th>
+					<td th:text="${jabatan.deskripsi}"></td>
+				</tr>
+				<tr>
+					<th>Gaji Pokok</th>
+					<td th:text="${jabatan.gaji_pokok}"></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<form th:action="@{/jabatan/ubah}" method="GET">
+				<input type="hidden" th:value = "${jabatan.id}" name="id_jabatan"/>
+				<button class="btn btn-primary" type="submit">Ubah</button>
+		</form>
+		<form th:action="@{/jabatan/hapus}" method="POST">
+				<input type="hidden" th:value = "${jabatan.id}" name="id_jabatan"/>
+				<button class="btn btn-primary" type="submit">Hapus</button>
+		</form>
+    </div>
+</body>
+</html>
