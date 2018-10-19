@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    
+	<title>Home</title>
+	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<h1>Data Pegawai Muda</h1>
+	<div class="container">
+		<table class ="table table-borderless table-striped">
+			<tbody>
+				<tr>
+					<th>NIP</th>
+					<td th:text="${pegawaiMuda.nip}"></td>
+				</tr>
+				<tr>
+					<th>Nama</th>
+					<td th:text="${pegawaiMuda.nama}"></td>
+				</tr>
+				<tr>
+					<th>Tempat Lahir</th>
+					<td th:text="${pegawaiMuda.tempat_lahir}"></td>
+				</tr>
+				<tr>
+					<th>Tanggal Lahir</th>
+					<td th:text="${pegawaiMuda.tanggal_lahir}"></td>
+				</tr>
+				<tr>
+					<th>Tahun Masuk</th>
+					<td th:text="${pegawaiMuda.tahun_masuk}"></td>
+				</tr>
+				<tr>
+					<th>Nama Instansi</th>
+					<td th:text="${instansi.nama}"></td>
+				</tr>
+				<tr>
+					<th>Jabatan</th>
+					<td>
+					<ul th:each="jabatan : ${pegawaiMuda.listJabatan}">
+						<li th:text="${jabatan.nama}"></li>
+					</ul>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	<h1>Data Pegawai Tua</h1>
+	<div class="container">
+		<table class ="table table-borderless table-striped">
+			<tbody>
+				<tr>
+					<th>NIP</th>
+					<td th:text="${pegawaiTua.nip}"></td>
+				</tr>
+				<tr>
+					<th>Nama</th>
+					<td th:text="${pegawaiTua.nama}"></td>
+				</tr>
+				<tr>
+					<th>Tempat Lahir</th>
+					<td th:text="${pegawaiTua.tempat_lahir}"></td>
+				</tr>
+				<tr>
+					<th>Tanggal Lahir</th>
+					<td th:text="${pegawaiTua.tanggal_lahir}"></td>
+				</tr>
+				<tr>
+					<th>Tahun Masuk</th>
+					<td th:text="${pegawaiTua.tahun_masuk}"></td>
+				</tr>
+				<tr>
+					<th>Nama Instansi</th>
+					<td th:text="${instansi.nama}"></td>
+				</tr>
+				<tr>
+					<th>Jabatan</th>
+					<td>
+					<ul th:each="jabatan : ${pegawaiTua.listJabatan}">
+						<li th:text="${jabatan.nama}"></li>
+					</ul>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

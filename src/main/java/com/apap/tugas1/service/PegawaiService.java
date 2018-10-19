@@ -7,8 +7,9 @@ public interface PegawaiService {
 	PegawaiModel getDataPegawaiByNIP(String nip);
 	void addPegawai(PegawaiModel pegawai);
 	void updatePegawai(PegawaiModel pegawai);
-	PegawaiModel getPegawaiTertuaDiInstansi(Long idInstansi);
-	PegawaiModel getPegawaiTermudaDiInstansi(Long idInstansi);
 	double calculateGaji(PegawaiModel pegawai);
 	List<PegawaiModel> getAllPegawai();
+	PegawaiModel getPegawaiTertuaDiInstansi(Long idInstansi);
+	PegawaiModel getPegawaiTermudaDiInstansi(Long idInstansi);
+
 }

@@ -1,5 +1,8 @@
 package com.apap.tugas1.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -39,6 +43,9 @@ public class InstansiModel {
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	@JsonIgnore
 	private ProvinsiModel provinsi;
+	
+	@OneToMany(mappedBy = "instansi", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private List<PegawaiModel> listPegawai;
 
 	public long getId() {
 		return id;
@@ -46,6 +53,14 @@ public class InstansiModel {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public List<PegawaiModel> getListPegawai() {
+		return listPegawai;
+	}
+
+	public void setListPegawai(List<PegawaiModel> listPegawai) {
+		this.listPegawai = listPegawai;
 	}
 
 	public String getNama() {

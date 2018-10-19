@@ -1,5 +1,7 @@
 package com.apap.tugas1.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,6 +58,13 @@ public class JabatanController {
 		jabatanService.deleteJabatanById(tempId);
 		 
 		return "delete-success";
+	}
+	@RequestMapping("/jabatan/viewall")
+	public String viewall(Model model) {
+		List<JabatanModel> archive = jabatanService.findAll();
+		
+		model.addAttribute("listJabatan", archive);
+		return "viewall-jabatan";
 	}
 
 }

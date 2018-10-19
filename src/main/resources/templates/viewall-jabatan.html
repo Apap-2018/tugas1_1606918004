@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    
+	<title>Home</title>
+	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<center><h3>Daftar Jabatan</h3></center>
+	<br>
+    <div class="container">
+		<table id="table_id" class="display">
+			<thead>
+				<tr>
+					<th>Nama</th>
+					<th>Deskripsi</th>
+					<th>Gaji Pokok</th>
+				</tr>
+			</thead>
+				<tbody>
+					<tr th:each="jabatan : ${listJabatan}">
+						<td th:text="${jabatan.nama}"></td>
+						<td th:text="${jabatan.deskripsi}"></td>
+						<td th:text="${jabatan.gaji_pokok}"></td>
+					</tr>
+				</tbody>
+		</table>
+   </div>
+</body>
+</html>

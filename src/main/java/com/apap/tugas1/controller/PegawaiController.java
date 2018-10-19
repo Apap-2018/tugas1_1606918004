@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.apap.tugas1.model.InstansiModel;
 import com.apap.tugas1.model.JabatanModel;
 import com.apap.tugas1.model.PegawaiModel;
 import com.apap.tugas1.service.PegawaiService;
 import com.apap.tugas1.service.JabatanService;
+import com.apap.tugas1.service.InstansiService;
 
 @Controller
 public class PegawaiController {
@@ -21,11 +23,15 @@ public class PegawaiController {
 	
 	@Autowired
 	private JabatanService jabatanService;
+	@Autowired
+	private InstansiService instansiService;
 	
     @RequestMapping("/")
     private String home(Model model) {	
     	List<JabatanModel> allJabatan = jabatanService.findAll();
+    	List<InstansiModel> allInstansi = instansiService.findAll();
     	model.addAttribute("allJabatan", allJabatan);
+    	model.addAttribute("allInstansi", allInstansi);
         return "home";
     }
 	
@@ -39,6 +45,18 @@ public class PegawaiController {
 		System.out.println("test" + pegawai.getNama());
 		model.addAttribute("instansi", instansi);
 		return "view-pegawai";
+	}
+	
+	@RequestMapping(value="/pegawai/termuda-tertua", method = RequestMethod.GET)
+	private String getTertuaTermuda(@RequestParam("id_instansi") Long id_instansi, Model model) {
+		InstansiModel instansi = instansiService.getInstansiById(id_instansi);
+		PegawaiModel pegawaiMuda = pegawaiService.getPegawaiTermudaDiInstansi(id_instansi);
+		PegawaiModel pegawaiTua = pegawaiService.getPegawaiTertuaDiInstansi(id_instansi);
+		model.addAttribute("pegawaiMuda", pegawaiMuda);
+		model.addAttribute("pegawaiTua", pegawaiTua);
+		
+		model.addAttribute("instansi", instansi);
+		return "view-tertuatermuda";
 	}
 
 }

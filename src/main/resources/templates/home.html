@@ -49,6 +49,22 @@
 							<button type="submit" class="btn btn-primary">Lihat</button>
   						</div>
   					</form>
+  					<div class="card-header">
+  						Lihat Pegawai Termuda dan Tertua
+  					</div>
+  					<form th:action="@{/pegawai/termuda-tertua} " method="GET">
+  						<div class="card-body">
+  							<label for="instansi">Pilih Instansi</label>
+							<select required name="id_instansi" id="form-value" class="form-control">
+									<option
+					                   th:each="instansi,iterationStatus: ${allInstansi}"
+					                   th:text="${instansi.nama} + ' - ' + ${instansi.provinsi.nama}" th:value="${instansi.id}"></option>
+					                <option selected hidden value=''>--- Pilih Instansi  ---</option>
+								</select>
+							<p></p>
+							<button type="submit" class="btn btn-primary">Lihat</button>
+  						</div>
+  					</form>
   				</div>
   			</div>
   		</div>
