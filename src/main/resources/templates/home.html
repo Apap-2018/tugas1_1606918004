@@ -3,16 +3,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    
-	<title>Home</title>
+    <title th:replace="fragments/fragment :: header('Home')"></title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	<!-- <title>Home</title>
 	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script> -->
 
 </head>
+<style th:replace="fragments/fragment :: style"></style>
 <body>
+	
+	<nav th:replace="fragments/fragment :: navbar"></nav>
 	<div class="container-fluid">
-		<h1>Sistem Informasi Kepegawaian</h1>
-		<h3>Selamat Datang di Sistem Informasi Kepegawaian</h3>
+		<h1 class="sistem">Selamat Datang di Sistem Informasi Kepegawaian</h1>
+
 		<div class="row">
   			<div class="col-md-6">
   				<div class="card">
@@ -30,7 +35,7 @@
   				</div>
   			</div>
   		</div>
-  		<div class="row">
+  		  		<div class="row">
   			<div class="col-md-6">
   				<div class="card">
   					<div class="card-header">
@@ -49,22 +54,29 @@
 							<button type="submit" class="btn btn-primary">Lihat</button>
   						</div>
   					</form>
+  					
+  				</div>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-md-6">
+  				<div class="card">
   					<div class="card-header">
   						Lihat Pegawai Termuda dan Tertua
   					</div>
-  					<form th:action="@{/pegawai/termuda-tertua} " method="GET">
-  						<div class="card-body">
-  							<label for="instansi">Pilih Instansi</label>
+	  				<form th:action="@{/pegawai/termuda-tertua} " method="GET">
+	  					<div class="card-body">
+	  						<label for="instansi">Pilih Instansi</label>
 							<select required name="id_instansi" id="form-value" class="form-control">
-									<option
-					                   th:each="instansi,iterationStatus: ${allInstansi}"
-					                   th:text="${instansi.nama} + ' - ' + ${instansi.provinsi.nama}" th:value="${instansi.id}"></option>
-					                <option selected hidden value=''>--- Pilih Instansi  ---</option>
-								</select>
+								<option
+						                   th:each="instansi,iterationStatus: ${allInstansi}"
+						                   th:text="${instansi.nama} + ' - ' + ${instansi.provinsi.nama}" th:value="${instansi.id}"></option>
+						        <option selected hidden value=''>--- Pilih Instansi  ---</option>
+							</select>
 							<p></p>
 							<button type="submit" class="btn btn-primary">Lihat</button>
-  						</div>
-  					</form>
+	  					</div>
+	  				</form>
   				</div>
   			</div>
   		</div>

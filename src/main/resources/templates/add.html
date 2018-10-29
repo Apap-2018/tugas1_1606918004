@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.com">
   <head>
-    <title>Add Succeed</title>
-    
-  </head>
-  
+    <title th:replace="fragments/fragment :: header('Tambah Sukses!')"></title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	
+</head>
+<style th:replace="fragments/fragment :: style"></style>
   <body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
   	<h2>Data Berhasil Ditambahkan</h2>
+  	<a class="nav-link" th:href="@{/jabatan/view(id_jabatan=${jabatan.id})} ">Lihat Jabatan</a>
   </body>
   
  </html>

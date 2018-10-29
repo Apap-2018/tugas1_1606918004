@@ -11,5 +11,5 @@ public interface PegawaiService {
 	List<PegawaiModel> getAllPegawai();
 	PegawaiModel getPegawaiTertuaDiInstansi(Long idInstansi);
 	PegawaiModel getPegawaiTermudaDiInstansi(Long idInstansi);
-
+	String generateNIP(PegawaiModel pegawai);
 }

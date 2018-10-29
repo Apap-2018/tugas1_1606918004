@@ -24,11 +24,13 @@ public class JabatanController {
 	@RequestMapping(value="/jabatan/tambah",method = RequestMethod.GET)
 	private String addJabatan(Model model) {
 		model.addAttribute("jabatan",new JabatanModel());
+		
 		return "add-jabatan";
 	}
 	@RequestMapping(value="/jabatan/tambah", method =RequestMethod.POST)
-	private String addJabatanSubmit(@ModelAttribute JabatanModel jabatan) {
+	private String addJabatanSubmit(@ModelAttribute JabatanModel jabatan, Model model) {
 		jabatanService.addJabatan(jabatan);
+		model.addAttribute("jabatan", jabatan);
 		return "add";
 	}
 	@RequestMapping(value = "/jabatan/view")

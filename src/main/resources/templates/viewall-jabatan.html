@@ -3,14 +3,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    
-	<title>Home</title>
-	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-
+       <title th:replace="fragments/fragment :: header('Lihat Semua Jabatan')"></title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	
 </head>
-<body>
-	<center><h3>Daftar Jabatan</h3></center>
+<style th:replace="fragments/fragment :: style"></style>
+  <body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	<h3 class="sistem" style="text-align:center">Daftar Jabatan</h3>
 	<br>
     <div class="container">
 		<table id="table_id" class="display">

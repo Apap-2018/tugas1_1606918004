@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+  <head>
+    <title th:replace="fragments/fragment :: header('Tambah Pegawai')"></title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	
+</head>
+<style th:replace="fragments/fragment :: style"></style>
+  <body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+  	<h1 class="sistem">Hello!</h1>
+
+    <h2>Tambah Pegawai</h2>
+    <form th:action="@{/pegawai/tambah}" th:object="${pegawai}" method="POST">
+      Nama: <br>
+      <input type="text" name="nama" />
+      <br>
+      Tempat Lahir: <br>
+      <input type="text" name="tempat_lahir" />
+      <br>
+      Tanggal Lahir: <br>
+      <input type="date" name="tanggal_lahir" />
+      <br>
+      Tahun Masuk: <br>
+      <input type="number" name="tahun_masuk" min="1800" max="2018"/>
+      <br>
+       Provinsi: <br>
+      <select required name="id_jabatan" id="form-value" class="form-control">
+			<option
+				th:each="jabatan,iterationStatus: ${allJabatan}"
+				th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
+			<option selected hidden value=''>--- Pilih Jabatan  ---</option>
+	  </select>
+      Jabatan: <br>
+      <select required name="id_jabatan" id="form-value" class="form-control">
+			<option
+				th:each="jabatan,iterationStatus: ${allJabatan}"
+				th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
+			<option selected hidden value=''>--- Pilih Jabatan  ---</option>
+	  </select>
+      
+      <button type="submit">Submit</button>
+    </form>
+  
+  </body>
+  
+</html>

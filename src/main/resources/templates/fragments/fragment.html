@@ -3,20 +3,73 @@
   <head>
     <title th:fragment="header(title)" th:text="${title}"></title>
     <head th:fragment="css">
-    	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    	
+    	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat}" rel="stylesheet"> 
+  		<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css}">
+    	<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Press+Start+2P}" >
     </head>
     <head th:fragment="js">
     	<script th:src="@{/js/bootstrap.min.js}"></script>
+    	<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
     </head>
+    
   </head>
- 
+ <style th:fragment="style" type="text/css">
+ 		body{
+		/*background-color: black;
+		background-image: url("https://scontent.fcgk1-1.fna.fbcdn.net/v/t1.0-9/31934750_231790480942613_1683869240093835264_n.jpg?_nc_cat=0&oh=f97ec1a168f50f49a35f9133d4e27378&oe=5B6134A5");
+		background-blend-mode: lighten;*/
+
+		background: black;
+		background: linear-gradient(to right ,#2d5263, #223d49);
+		}
+		.row{
+			padding: 5px;
+		}
+		.sistem{
+			font-family: 'Montserrat', sans-serif;
+			font-size: 40px;
+			padding-top: 3%;
+			color:white;
+	
+		}
+		nav{
+			background-color: #223d49;
+			color: white;
+		}
+		.navbar-brand{
+			font-family: 'Press Start 2P', cursive;
+			/*font-family: 'Chewy', cursive;*/
+			/*font-family: 'Knewave', cursive;*/
+			color: #FFD700;
+		}
+		.nav-link{
+			font-family: 'Montserrat', sans-serif;
+			font-size: 20px;
+			background-color: #223d49;
+			color: #FFD700;
+	 	}
+ 	</style>
  <body>
+ 	
   	<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  		<a class="navbar-brand" href="/">APAP</a>
+  		<a class="navbar-brand" style="color:yellow" th:href="@{/}">SIPEG</a>
   		<div class="collapse navbar-collapse" id="navbarSupportedContent">
   			<ul class="navbar-nav mr-auto">
   				<li class="nav-item active">
   					<a class="nav-link" th:href="@{/} ">Home</a>
+  				</li>
+  				<li>
+  					<a class="nav-link" th:href="@{/pegawai/tambah} ">Tambah Pegawai</a>
+  				</li>
+  				<li>
+  					<a class="nav-link" th:href="@{/jabatan/tambah} ">Tambah Jabatan</a>
+  				</li>
+  				<li>
+  					<a class="nav-link" th:href="@{/} ">Cari Pegawai</a>
+  				</li>
+  				<li>
+  					<a class="nav-link" th:href="@{/jabatan/viewall} ">Lihat semua Jabatan</a>
   				</li>
   			</ul>
   		</div>

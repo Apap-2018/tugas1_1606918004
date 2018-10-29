@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     
-	<title>Home</title>
-	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-
-</head>
+    <title th:replace="fragments/fragment :: header('Ubah Jabatan Berhasil!')"></title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 	
-	<body>
+</head>
+<style th:replace="fragments/fragment :: style"></style>
+  <body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
 		
 		<h2>Data Berhasil Diubah</h2>
 	</body>
