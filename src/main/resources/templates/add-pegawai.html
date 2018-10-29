@@ -26,12 +26,21 @@
       <input type="number" name="tahun_masuk" min="1800" max="2018"/>
       <br>
        Provinsi: <br>
-      <select required name="id_jabatan" id="form-value" class="form-control">
+      <select required name="id_provinsi" id="form-value" class="form-control">
 			<option
-				th:each="jabatan,iterationStatus: ${allJabatan}"
+				th:each="jabatan,iterationStatus: ${allProvinsi}"
 				th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
 			<option selected hidden value=''>--- Pilih Jabatan  ---</option>
 	  </select>
+	  <br>
+	  Instansi: <br>
+	  <select required name="id_instansi" id="form-value" class="form-control">
+								<option
+						                   th:each="instansi,iterationStatus: ${allInstansi}"
+						                   th:text="${instansi.nama} + ' - ' + ${instansi.provinsi.nama}" th:value="${instansi.id}"></option>
+						        <option selected hidden value=''>--- Pilih Instansi  ---</option>
+							</select>
+							<br>
       Jabatan: <br>
       <select required name="id_jabatan" id="form-value" class="form-control">
 			<option

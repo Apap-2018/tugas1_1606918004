@@ -31,13 +31,17 @@ public class PegawaiController {
 	private JabatanService jabatanService;
 	@Autowired
 	private InstansiService instansiService;
+	@Autowired
+	private ProvinsiDb provinsiService;
 	
     @RequestMapping("/")
     private String home(Model model) {	
     	List<JabatanModel> allJabatan = jabatanService.findAll();
     	List<InstansiModel> allInstansi = instansiService.findAll();
+    	List<ProvinsiModel> allProvinsi = provinsiService.findAll();
     	model.addAttribute("allJabatan", allJabatan);
     	model.addAttribute("allInstansi", allInstansi);
+    	model.addAttribute("allProvinsi", allProvinsi);
         return "home";
     }
 	
